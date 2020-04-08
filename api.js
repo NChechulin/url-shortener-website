@@ -1,18 +1,23 @@
 var base_url = "http://127.0.0.1:5000/api/"
 const url = 'http://127.0.0.1:5000/api/get_url?code=test';
 
-function display_response(url) {
-    var response_input = document.getElementById("result_url");
-    response_input.style.visibility = 'visible';
+function display_response(response) {
+    if (response['success']) {
+        var url = response['url'];
+
+        document.getElementById("result_url").value = url;
+        document.getElementById('result').style.visibility = 'visible';
+    } else {
+        alert('error: ' + response['message']);
+    }
 }
 
-function help() {
+function shorten_url() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var response = JSON.parse(this.response)
-            console.log(response['url'])
-            document.getElementById("result_url").value = response['url'];
+            display_response(response);
         }
     };
     xhttp.open("GET", "http://127.0.0.1:5000/api/get_url?code=test", true);
