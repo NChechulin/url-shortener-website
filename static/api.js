@@ -1,11 +1,11 @@
-var api_base_url = "http://127.0.0.1:5000/api/"
-var website_base_url = "http://127.0.0.1:8000/"
+var api_base_url = 'http://127.0.0.1:5000/api/'
+var website_base_url = 'http://127.0.0.1:8000/'
 
 function display_response(response) {
     if (response['success']) {
         var code = response['code'];
 
-        document.getElementById("result_url").value = website_base_url + code;
+        document.getElementById('result_url').value = website_base_url + code;
         document.getElementById('result').style.visibility = 'visible';
     } else {
         alert('error: ' + response['message']);
@@ -28,6 +28,6 @@ function shorten_url() {
         }
     };
 
-    xhttp.open("GET", api_base_url + 'shorten_link?url=' + url, true);
+    xhttp.open('GET', api_base_url + 'shorten_link?url=' + url, true);
     xhttp.send();
 }

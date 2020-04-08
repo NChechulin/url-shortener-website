@@ -4,11 +4,11 @@ import json
 
 
 app = Flask(__name__)
-API_BASE_URL = "http://127.0.0.1:5000/api/"
+API_BASE_URL = 'http://127.0.0.1:5000/api/'
 
 
-@app.route("/")
-def hello():
+@app.route('/')
+def index_handler():
     return render_template('index.html')
 
 
@@ -19,9 +19,9 @@ def code_handler(code):
 
     if response['success']:
         return redirect(response['url'])
-        
+
     return '<h1>This link does not exist</h1>'
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
