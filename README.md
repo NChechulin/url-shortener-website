@@ -1,3 +1,8 @@
+## Links
+
+- :ru: [Версия на русском языке](README-RU.md)
+- [Repository with API](https://github.com/NChechulin/url-shortener-api)
+
 # URL shortener website
 
 This project is a web interface to [URL shortener API](https://github.com/NChechulin/url-shortener-api) built with Python3 + Flask and Bootstrap
